@@ -203,7 +203,3 @@ npm test
 ## 🏗️ System Design
 
 See `/docs/SystemDesign.md` for full architecture documentation.
-
----
-
-*Built with engineering depth and product thinking. Explainable in any FAANG system design interview.*
