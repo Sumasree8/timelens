@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #04070D;
+    color: #EAF1FF;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0F1C;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1b2436;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3B82F6;
+  }
+}
+
+@layer components {
+  /* Premium glass surface with a restrained glow. */
+  .glass {
+    background: rgba(10, 15, 28, 0.72);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.22);
+  }
+
+  /* Brand gradient text: blue → cyan → violet. */
+  .text-gradient {
+    background: linear-gradient(135deg, #EAF1FF 0%, #3B82F6 45%, #06B6D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #3B82F6 0%, #06B6D4 50%, #8B5CF6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    @apply text-white font-display font-semibold px-6 py-3 rounded-xl transition-all duration-200;
+    background: linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%);
+    box-shadow: 0 0 22px rgba(59, 130, 246, 0.35);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 36px rgba(6, 182, 212, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    @apply border border-border hover:border-accent text-text-secondary hover:text-text-primary font-display font-medium px-6 py-3 rounded-xl transition-all duration-200;
+  }
+
+  /* Glass panel card with hairline border + faint depth. */
+  .card {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(14px);
+    @apply border border-border rounded-2xl p-6;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset, 0 18px 40px -24px rgba(0,0,0,0.8);
+  }
+
+  .input-field {
+    @apply w-full bg-surface border border-border rounded-xl px-4 py-3 text-text-primary placeholder-muted font-body focus:outline-none focus:border-accent transition-colors duration-200;
+  }
+}
+
+/* Subtle noise film for richness. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
